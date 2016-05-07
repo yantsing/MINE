@@ -2,7 +2,6 @@
 
 @author: Yanqing
 '''
-from _sqlite3 import Row
 
 #partition : a sorted array of natural number
 #c         : a natural number to be unioned to the partition.
@@ -57,7 +56,10 @@ def GetRowIndex(y,Q):
     if  y == Q[minIndex]:
         return minIndex
     else:
-        return maxIndex    
+        return maxIndex  
+    
+def GetColIndex(x,P):  
+    return GetRowIndex(x,P)    
 
 #D: points (x,y) set sorted by x-axis
 #Q: partition of y-axis; Q is a array, each element of which is a y value of the boundary
@@ -117,8 +119,8 @@ def GetSuperclumpsPartition(P, tildek):
 #D : points (x, y) sorted by x axis
 def countNum(D, P, Q):   
     row = len(Q) - 1
-    rol = len(P) - 1
-    count = [[0 for i in range(row + 1)] for j in range(rol + 1)]
+    col = len(P) - 1
+    count = [[0 for i in range(row + 1)] for j in range(col + 1)]
     
     n = 0
     i = 1
@@ -130,7 +132,45 @@ def countNum(D, P, Q):
         count[i][j] = count[i][j] + 1
         
     sumCol = [sum(x) for x in count]    
-    return count, sumCol    
+    return count, sumCol 
+
+def countNumFixedQ(xPartition, P, Q, count, sumCol):
+    row = len(Q) - 1
+    col = len(P) - 1
+    resultCol = len(xPartition) - 1
+    resultCount = [[0 for i in range(row + 1)] for j in range(resultCol + 1)]
+    resultSumCol = [0 for i in range(resultCol + 1)]
+    i = 1
+#     resultSumCol[i] = sumCol[i] 
+#     for j in range(1, row + 1):
+#         resultCount[i][j] = count[i][j]
+    start = GetColIndex(xPartition[i - 1], P)
+    for c in range(start + 1, col + 1):
+        if P[c] <= xPartition[i]:
+            for j in range(1, row + 1):
+                resultCount[i][j] =  resultCount[i][j] + count[c][j]
+            resultSumCol[i] = resultSumCol[i] + sumCol[c]
+        else:
+            i = i + 1
+            if i > resultCol:
+                break
+            for j in range(1,row + 1):
+                resultCount[i][j] = count[c][j]
+            resultSumCol[i] = sumCol[c]
+                    
+    return resultCount, resultSumCol
+
+# def entropy(D,xPartition, Q, sumCol):   
+#     col = len(xPartition) 
+#     row = len(Q)  
+#     countNum(D, xPartition, Q): 
+#     totolNum = 
+#     
+#     for l in range(1, col):
+#         for i in range(1,row):
+#             sum = count
+        
+        
   
     
     
@@ -143,12 +183,15 @@ if __name__ == '__main__':
     
     
 
-    D = [(1,2),(3,4),(3,5), (3,6),(4,7)]
-    P = [0,4,7]
+    count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+    sumCol = [sum(x) for x in count]
+    P = [0,8,23,26,35]
     Q = [-1,4,5,7]
+    xPartition = [26,35]
     
-    dd = countNum(D, P, Q)
+    [dd, ddd] = countNumFixedQ(xPartition, P, Q, count, sumCol)
     print dd
+    print ddd
     
 #     Q = equipartitionYAxis(D,2)
 # #     

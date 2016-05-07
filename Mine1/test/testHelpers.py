@@ -4,7 +4,7 @@ Created on
 @author: Yanqing
 '''
 import unittest
-from Helpers.Helpers import unionPartition, equipartitionYAxis, GetRowIndex, GetClumpsPartition,GetSuperclumpsPartition, countNum
+from Helpers.Helpers import *
 
 
 class TestHelpersMethods(unittest.TestCase):
@@ -82,7 +82,49 @@ class TestHelpersMethods(unittest.TestCase):
         
     def test_GetRowIndex9(self):
         Q = [-1,3,4,7,8,10]
-        self.assertEqual(GetRowIndex(6,Q), 3, "GetRowIndex testcase 9")                    
+        self.assertEqual(GetRowIndex(6,Q), 3, "GetRowIndex testcase 9") 
+        
+        
+    #############################################################################
+    def test_GetColIndex1(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(2,Q), 1, "GetRowIndex testcase 1")
+        
+    def test_GetRolIndex2(self):
+        Q = [0,4,7,8,10]
+        self.assertEqual(GetColIndex(4,Q), 1, "GetRolIndex testcase 2")
+        
+    def test_GetRolIndex3(self):
+        Q = [0,3,4,7,8,10,20]
+        self.assertEqual(GetColIndex(5,Q), 3, "GetRolIndex testcase 3")        
+
+    def test_GetRolIndex4(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(7,Q), 3, "GetRolIndex testcase 4")     
+           
+    def test_GetRolIndex5(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(8,Q), 4, "GetRolIndex testcase 6")     
+        
+    def test_GetRolIndex6(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(9,Q), 5, "GetRolIndex testcase 7") 
+        
+    def test_GetRolIndex7(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(10,Q), 5, "GetRolIndex testcase 7")    
+        
+    def test_GetRolIndex8(self):
+        Q = [0,3,4,7,8,10,20]
+        self.assertEqual(GetColIndex(19,Q), 6, "GetRolIndex testcase 8")   
+        
+    def test_GetRolIndex9(self):
+        Q = [0,3,4,7,8,10]
+        self.assertEqual(GetColIndex(20,Q), 6, "GetRolIndex testcase 9")  
+        
+    def test_GetRolIndex10(self):
+        Q = [3,4]
+        self.assertEqual(GetColIndex(4,Q), 1, "GetRolIndex testcase 10")                          
       
     #############################################################################   
     def test_GetClumpsPartition1(self):
@@ -120,7 +162,96 @@ class TestHelpersMethods(unittest.TestCase):
         self.assertEqual(count , target, "countNum testcase 1")  
         self.assertEqual(countCol , [0,4,1], "countNum testcase 1")  
     
-   
+    ##########################################################################################
+    def test_countNumFixedQ1(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,8,35]
+        target = [[0, 0, 0, 0], [0, 1, 3, 4], [0, 5, 9, 13]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        print count
+        self.assertEqual(count , target, "countNumFixedQ testcase 1")  
+        self.assertEqual(countCol , [0,8,27], "countNumFixedQ testcase 1") 
+    
+    def test_countNumFixedQ2(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,8,23]
+        target = [[0, 0, 0, 0], [0, 1, 3, 4], [0, 2, 5, 8]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        self.assertEqual(count , target, "countNumFixedQ testcase 2")  
+        self.assertEqual(countCol , [0,8,15], "countNumFixedQ testcase 2")     
+        
+    def test_countNumFixedQ3(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,26,35]
+        target = [[0, 0, 0, 0], [0, 4, 9, 13], [0, 2, 3, 4]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+         
+         
+        self.assertEqual(count , target, "countNumFixedQ testcase 3")  
+        self.assertEqual(countCol , [0,26,9], "countNumFixedQ testcase 3")  
+        
+        
+    def test_countNumFixedQ4(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,23,26]
+        target = [[0, 0, 0, 0], [0, 3, 8, 12], [0, 1, 1, 1]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        
+        print count
+        self.assertEqual(count , target, "countNumFixedQ testcase 4")  
+        self.assertEqual(countCol , [0,23,3], "countNumFixedQ testcase 4")  
+        
+    def test_countNumFixedQ5(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [23,26]
+        target = [[0, 0, 0, 0], [0, 1, 1, 1]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        
+        print count
+        self.assertEqual(count , target, "countNumFixedQ testcase 5")  
+        self.assertEqual(countCol , [0,3], "countNumFixedQ testcase 5")  
+        
+    def test_countNumFixedQ6(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,8]
+        target = [[0, 0, 0, 0], [0, 1, 3, 4]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        
+        print count
+        self.assertEqual(count , target, "countNumFixedQ testcase 6")  
+        self.assertEqual(countCol , [0,8], "countNumFixedQ testcase 6") 
+        
+    def test_countNumFixedQ67(self):
+        count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
+        sumCol = [sum(x) for x in count]
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [26,35]
+        target = [[0, 0, 0, 0], [0, 2, 3, 4]]
+        [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+        
+        print count
+        self.assertEqual(count , target, "countNumFixedQ testcase 7")  
+        self.assertEqual(countCol , [0,9], "countNumFixedQ testcase 7")                
+ 
     
 if __name__ == '__main__':
     unittest.main()
