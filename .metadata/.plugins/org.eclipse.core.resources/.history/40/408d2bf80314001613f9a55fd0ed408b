@@ -1,0 +1,34 @@
+'''
+Created on
+
+@author: Yanqing
+'''
+import unittest
+from Helpers.Helpers import unionPartition
+
+class TestHelpersMethods(unittest.TestCase):
+
+    def test_unionPartition1(self):
+        x = [1,3,4]
+        y = unionPartition(x,1)
+        self.assertEqual(unionPartition(x,1), x, "unionPartion testcase 1")
+        
+    def test_unionPartition2(self):
+        x = [1,3,4]
+        target = [0,1,3,4]
+        y = unionPartition(x,0)
+        self.assertEqual(y, target, "unionPartion testcase 2")  
+        
+    def test_unionPartition3(self):
+        x = [1,3,4]
+        target = [1,2,3,4]
+        self.assertEqual(unionPartition(x,1), [1,2,3,4], "unionPartion testcase 3")  
+        
+    def test_unionPartition4(self):
+        x = [1,3,4]
+        y = unionPartition(x,5)
+        self.assertEqual(unionPartition(x,1), [1,3,4,5], "unionPartion testcase 4")         
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,80 @@
+'''
+
+@author: Yanqing
+'''
+
+#partition : a sorted array of natural number
+#c         : a natural number to be unioned to the partition.
+def unionPartition(partition, c):
+    setPartition = set(partition)
+    setPartition.add(c)
+    newPartition = list(setPartition)
+    return sorted(newPartition)
+
+def equipartitionYAxis(D, y):
+    n = float(len(D))
+    
+    if n < y:
+        raise ValueError('The number of the clumps cannot be larger than the points number')
+    
+    i = 1
+    currRow = 1;
+    desiredRowSize = n/y
+    Q = [float('-inf'),0]
+    currRowNum = 0
+    while i <= n:
+        j = i + 1
+        while j <= n and D[j-1][1] == D[i-1][1]:
+            j = j + 1
+        S = j - i
+        if currRowNum != 0 and abs(currRowNum + S - desiredRowSize) >= abs(currRowNum - desiredRowSize):
+            currRow = currRow + 1;
+            Q.append(0)
+            desiredRowSize = (n - i + 1)/(y - currRow + 1)
+            currRowNum = S
+        else:
+            currRowNum = currRowNum + S
+        
+        Q[currRow] = (D[i - 1][1])   
+        i = i + S
+
+    return Q
+
+
+#D: points (x,y) set sorted by x-axis
+#Q: partition of y-axis; Q is a array, each element of which is a y value of the boundary
+def GetClumpsPartition(D, Q):
+    P = [0,0]
+    i = 1
+    n = len(Q)
+    while i <= n:
+        j = i + 1
+        while j <= n and D[j-1][1] == D[i-1][1]:
+            j = j + 1
+        S = j - i
+        if currRowNum != 0 and abs(currRowNum + S - desiredRowSize) >= abs(currRowNum - desiredRowSize):
+            currRow = currRow + 1;
+            Q.append(0)
+            desiredRowSize = (n - i + 1)/(y - currRow + 1)
+            currRowNum = S
+        else:
+            currRowNum = currRowNum + S
+        
+        Q[currRow] = (D[i - 1][1])   
+        i = i + S
+
+    return Q
+    
+    
+    
+
+
+
+if __name__ == '__main__':
+    D = [(1,2),(3,4),(3,5)]
+    Q = equipartitionYAxis(D,2)
+    
+    D = [(1,2),(3,4),(3,5)]
+    Q = equipartitionYAxis(D,3)
+    print Q
+

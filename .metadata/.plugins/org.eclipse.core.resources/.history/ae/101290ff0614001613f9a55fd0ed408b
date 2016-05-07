@@ -1,0 +1,37 @@
+'''
+
+@author: Yanqing
+'''
+
+#partition : a sorted array of natural number
+#c         : a natural number to be unioned to the partition.
+def unionPartition(partition, c):
+    setPartition = set(partition)
+    setPartition.add(c)
+    newPartition = list(setPartition)
+    return sorted(newPartition)
+
+def equipartitionYAxis(D, y):
+    n = size(D,1)
+    i = 1;
+    currRow = 1;
+    desiredRowSize = n/y;
+    
+    currRowNum = 0
+    while i > n:
+        j = i + 1;
+        while D[j][2] == D[i][2]:
+            j = j + 1;
+
+        S = j - i;
+        if currRowNum == 0 & abs(currRow + S - desiredRowSize) >= abs(currRow - desiredRowSize):
+            currRow = currRow + 1;
+            desiredRowSize = (n - i + 1)/(y - currRow + 1);
+
+        Q[currRow] = D[i][2];
+        currRowNum = currRowNum + S;
+        i = i + S;
+
+    
+    return Q
+
