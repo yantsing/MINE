@@ -129,8 +129,8 @@ def countNum(D, P, Q):
         j = GetRowIndex(d[1],Q)
         count[i][j] = count[i][j] + 1
         
-    sumCol = [sum(x) for x in count]    
-    return count, sumCol    
+        
+    return count    
   
     
     

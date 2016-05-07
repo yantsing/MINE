@@ -118,7 +118,6 @@ class TestHelpersMethods(unittest.TestCase):
         target = [[0, 0, 0, 0], [0, 2, 1, 1], [0, 0, 0, 1]]
         [count, countCol] = countNum(D, P, Q)
         self.assertEqual(count , target, "countNum testcase 1")  
-        self.assertEqual(countCol , [0,4,1], "countNum testcase 1")  
     
    
     
