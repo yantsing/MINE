@@ -4,7 +4,7 @@ Created on
 @author: Yanqing
 '''
 import unittest
-from Helpers.Helpers import unionPartition, equipartitionYAxis, GetRowIndex, GetClumpsPartition,GetSuperclumpsPartition
+from Helpers.Helpers import unionPartition, equipartitionYAxis, GetRowIndex, GetClumpsPartition,GetSuperclumpsPartition, countNum
 
 
 class TestHelpersMethods(unittest.TestCase):
@@ -101,13 +101,24 @@ class TestHelpersMethods(unittest.TestCase):
         self.assertEqual(GetClumpsPartition(D, Q), [0,2,3,5,6,10], "GetClumpsPartition testcase 2")        
     
     ###########################################################################################
-    def test_GetClumpsPartition1(self):
+    def test_GGetSuperclumpsPartition(self):
         P = [0,3,6,8,9,10,11]
         self.assertEqual(GetSuperclumpsPartition(P, 2), [0,6,11], "GetSuperclumpsPartition testcase 1")
 
-    def test_GetClumpsPartitio2(self):
+    def test_GetSuperclumpsPartition(self):
         P = [0,3,6,8,9,10,11]
         self.assertEqual(GetSuperclumpsPartition(P, 3), [0,3,6,11], "GetSuperclumpsPartition testcase 2")
+        
+    
+    ###########################################################################################
+    def test_countNum(self):
+        D = [(1,2),(3,4),(3,5), (3,6),(4,7)]
+        P = [0,4,7]
+        Q = [-1,4,5,7]
+        target = [[0, 0, 0, 0], [0, 2, 1, 1], [0, 0, 0, 1]]
+        self.assertEqual(countNum(D, P, Q) , target, "countNum testcase 1")  
+    
+   
     
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,113 @@
+'''
+Created on
+
+@author: Yanqing
+'''
+import unittest
+from Helpers.Helpers import unionPartition, equipartitionYAxis, GetRowIndex, GetClumpsPartition,GetSuperclumpsPartition
+
+
+class TestHelpersMethods(unittest.TestCase):
+    #############################################################################
+    def test_unionPartition1(self):
+        x = [1,3,4]
+        self.assertEqual(unionPartition(x,1), x, "unionPartion testcase 1")
+        
+    def test_unionPartition2(self):
+        x = [1,3,4]
+        target = [0,1,3,4]
+        y = unionPartition(x,0)
+        self.assertEqual(y, target, "unionPartion testcase 2")  
+        
+    def test_unionPartition3(self):
+        x = [1,3,4]
+        target = [1,2,3,4]
+        self.assertEqual(unionPartition(x,2), target, "unionPartion testcase 3")  
+         
+    def test_unionPartition4(self):
+        x = [1,3,4]
+        target = [1,3,4,5]
+        self.assertEqual(unionPartition(x,5), target, "unionPartion testcase 4")   
+        
+    #####################################################################################          
+    def test_equipartitionYAxis1(self):
+        D = [(1,2),(3,4),(3,5)]
+        Q = equipartitionYAxis(D,2)
+        target = [-1,2,5]
+        self.assertEqual(equipartitionYAxis(D,2), target, "equipartitionYAxis testcase 1")
+        
+    def test_equipartitionYAxis2(self):
+        D = [(1,2),(3,4),(3,5)]
+        target = [-1,5]
+        self.assertEqual(equipartitionYAxis(D,1), target, "equipartitionYAxis testcase 2") 
+        
+    def test_equipartitionYAxis3(self):
+        D = [(1,2),(3,4),(3,5)]
+        target = [-1,2,4,5]
+        self.assertEqual(equipartitionYAxis(D,3), target, "equipartitionYAxis testcase 3") 
+        
+        
+    ######################################################################################
+    def test_GetRowIndex1(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(2,Q), 1, "GetRowIndex testcase 1")
+        
+    def test_GetRowIndex2(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(2,Q), 1, "GetRowIndex testcase 2")
+        
+    def test_GetRowIndex3(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(4,Q), 2, "GetRowIndex testcase 3")        
+
+    def test_GetRowIndex4(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(5,Q), 3, "GetRowIndex testcase 4")     
+           
+    def test_GetRowIndex5(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(8,Q), 4, "GetRowIndex testcase 6")     
+        
+    def test_GetRowIndex6(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(9,Q), 5, "GetRowIndex testcase 7") 
+        
+    def test_GetRowIndex7(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(10,Q), 5, "GetRowIndex testcase 7")    
+        
+    def test_GetRowIndex8(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(7,Q), 3, "GetRowIndex testcase 8")   
+        
+    def test_GetRowIndex9(self):
+        Q = [-1,3,4,7,8,10]
+        self.assertEqual(GetRowIndex(6,Q), 3, "GetRowIndex testcase 9")                    
+      
+    #############################################################################   
+    def test_GetClumpsPartition1(self):
+        D = [(1,2),(1,3),(3,4),(3,5),(4,6),(5,8)]
+        Q = [-1,3,6,8]
+        self.assertEqual(GetClumpsPartition(D, Q), [0,2,5,6], "GetClumpsPartition testcase 1") 
+        
+    def test_GetClumpsPartition2(self):
+        D = [(1,2),(1,3),(3,4),(3,5),(4,6),(5,8)]
+        Q = [-1,3,4,6,8]
+        self.assertEqual(GetClumpsPartition(D, Q), [0,2,3,5,6], "GetClumpsPartition testcase 2")  
+        
+    def test_GetClumpsPartition3(self):
+        D = [(1,2),(1,3),(3,4),(3,5),(4,6),(5,8),(5,9),(5,10),(5,11),(5,11)]
+        Q = [-1,3,4,6,8,11]
+        self.assertEqual(GetClumpsPartition(D, Q), [0,2,3,5,6,10], "GetClumpsPartition testcase 2")        
+    
+    ###########################################################################################
+    def test_GetClumpsPartition1(self):
+        P = [0,3,6,8,9,10,11]
+        self.assertEqual(GetSuperclumpsPartition(P, 2), [0,6,11], "GetSuperclumpsPartition testcase 1")
+
+    def test_GetClumpsPartitio2(self):
+        P = [0,3,6,8,9,10,11]
+        self.assertEqual(GetSuperclumpsPartition(P, 3), [0,3,6,11], "GetSuperclumpsPartition testcase 2")
+    
+if __name__ == '__main__':
+    unittest.main()

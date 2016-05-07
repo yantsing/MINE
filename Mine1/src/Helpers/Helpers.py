@@ -2,6 +2,7 @@
 
 @author: Yanqing
 '''
+from _sqlite3 import Row
 
 #partition : a sorted array of natural number
 #c         : a natural number to be unioned to the partition.
@@ -113,6 +114,25 @@ def GetSuperclumpsPartition(P, tildek):
 
     return rP
     
+#D : points (x, y) sorted by x axis
+def countNum(D, P, Q):   
+    row = len(Q) - 1
+    rol = len(P) - 1
+    count = [[0 for i in range(row + 1)] for j in range(rol + 1)]
+    
+    n = 0
+    i = 1
+    for d in D:
+        n = n + 1
+        if n > P[i]:
+            i = i + 1
+        j = GetRowIndex(d[1],Q)
+        count[i][j] = count[i][j] + 1
+        
+        
+    return count    
+  
+    
     
     
 
@@ -123,9 +143,11 @@ if __name__ == '__main__':
     
     
 
-    P = [0,3,6,8,9,10,11]
+    D = [(1,2),(3,4),(3,5), (3,6),(4,7)]
+    P = [0,4,7]
+    Q = [-1,4,5,7]
     
-    dd = GetSuperclumpsPartition(P, 3)
+    dd = countNum(D, P, Q)
     print dd
     
 #     Q = equipartitionYAxis(D,2)

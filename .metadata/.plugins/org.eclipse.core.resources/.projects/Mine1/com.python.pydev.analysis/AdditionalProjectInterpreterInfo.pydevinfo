@@ -1,28 +1,27 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\Yanqing\MINE\MINE\.metadata\.plugins\org.eclipse.core.resources\.projects\Mine1\com.python.pydev.analysis\v2_indexcache
-Helpers.Helpers|1462609466925447000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
+test.testHelpers|1462615142179227000|C:\Users\Yanqing\MINE\MINE\Mine1\test\testHelpers.py
 Helpers.__init__|1462590559380840000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\__init__.py
 -- END DISKCACHE
 -- START DICTIONARY
-1
-1=Helpers.Helpers
+2
+1=test.testHelpers
+2=TestHelpersMethods
 -- END DICTIONARY
 -- START TREE 1
 9
 D|0|
-P|1|P!11@
+P|0|
 Q|0|
-dd|1|dd!11@
-equ|1|equipartitionYAxis!10@
-get|3|GetRowIndex!10@GetClumpsPartition!10@GetSuperclumpsPartition!10@
-tes|0|
-uni|1|unionPartition!10@
-y|0|
+cou|0|
+dd|0|
+equ|0|
+get|0|
+tes|1|TestHelpersMethods!9@
+uni|0|
 -- END TREE
 -- START TREE 2
-3
-D|0|
-Q|0|
-tes|0|
+1
+tes|21|test_equipartitionYAxis2!2&10@test_GetRowIndex1!2&10@test_unionPartition1!2&10@test_GetRowIndex5!2&10@test_equipartitionYAxis3!2&10@test_unionPartition4!2&10@test_GetRowIndex9!2&10@test_GetRowIndex4!2&10@test_GetClumpsPartition1!2&10@test_GGetSuperclumpsPartition!2&10@test_unionPartition3!2&10@test_GetRowIndex3!2&10@test_GetSuperclumpsPartition!2&10@test_GetRowIndex8!2&10@test_GetClumpsPartition2!2&10@test_GetRowIndex7!2&10@test_GetRowIndex2!2&10@test_equipartitionYAxis1!2&10@test_GetRowIndex6!2&10@test_GetClumpsPartition3!2&10@test_unionPartition2!2&10@
 -- END TREE

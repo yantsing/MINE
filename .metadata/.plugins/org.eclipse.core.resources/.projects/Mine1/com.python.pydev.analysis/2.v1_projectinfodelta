@@ -1,10 +1,13 @@
 INSTUPHelpers.Helpers
 C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
-INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&3|7|2|0&&3|8|2|0
-P=7
-dd=8
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0&&3|8|2|0&&3|9|2|0&&3|10|2|0&&3|11|2|0
+P=9
+dd=11
 unionPartition=1
+Q=10
 Helpers.Helpers=2
+countNum=7
+D=8
 equipartitionYAxis=3
 GetRowIndex=4
 GetClumpsPartition=5
