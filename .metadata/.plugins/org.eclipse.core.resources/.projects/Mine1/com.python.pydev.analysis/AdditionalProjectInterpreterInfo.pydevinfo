@@ -1,32 +1,29 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\Yanqing\MINE\MINE\.metadata\.plugins\org.eclipse.core.resources\.projects\Mine1\com.python.pydev.analysis\v2_indexcache
-test.testHelpers|1462665850195164000|C:\Users\Yanqing\MINE\MINE\Mine1\test\testHelpers.py
-Helpers.Helpers|1462665762029274000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
+Helpers.Helpers|1462687602135791000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
 Helpers.__init__|1462590559380840000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\__init__.py
 -- END DISKCACHE
 -- START DICTIONARY
-3
-2=test.testHelpers
-3=TestHelpersMethods
+1
 1=Helpers.Helpers
 -- END DICTIONARY
 -- START TREE 1
 12
-D|0|
-P|1|P!11@
-Q|1|Q!11@
+H|0|
+P|0|
+Q|0|
 cou|3|count!11@countNum!10@countNumFixedQ!10@
-dd|0|
-ent|0|
+dd|1|dd!11@
+ent|1|entropy!10@
 equ|1|equipartitionYAxis!10@
 get|4|GetRowIndex!10@GetClumpsPartition!10@GetSuperclumpsPartition!10@GetColIndex!10@
 sum|1|sumCol!11@
-tes|1|TestHelpersMethods!17@
+tes|0|
 uni|1|unionPartition!10@
-xpa|1|xPartition!11@
+xpa|0|
 -- END TREE
 -- START TREE 2
 1
-tes|33|test_equipartitionYAxis2!3&18@test_GetColIndex1!3&18@test_GetRolIndex7!3&18@test_unionPartition1!3&18@test_GetRowIndex5!3&18@test_equipartitionYAxis3!3&18@test_GetRolIndex6!3&18@test_GetRowIndex4!3&18@test_GetClumpsPartition1!3&18@test_GGetSuperclumpsPartition!3&18@test_countNum!3&18@test_unionPartition3!3&18@test_GetRowIndex3!3&18@test_GetRolIndex5!3&18@test_GetRowIndex2!3&18@test_GetRolIndex4!3&18@test_GetRolIndex10!3&18@test_unionPartition2!3&18@test_GetRolIndex3!3&18@test_GetRowIndex1!3&18@test_GetRolIndex2!3&18@test_unionPartition4!3&18@test_GetRowIndex9!3&18@test_GetSuperclumpsPartition!3&18@test_GetRowIndex8!3&18@test_GetClumpsPartition2!3&18@test_countNumFixedQ1!3&18@test_GetRowIndex7!3&18@test_GetRolIndex9!3&18@test_equipartitionYAxis1!3&18@test_GetRowIndex6!3&18@test_GetRolIndex8!3&18@test_GetClumpsPartition3!3&18@
+tes|0|
 -- END TREE

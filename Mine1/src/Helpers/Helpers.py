@@ -2,7 +2,7 @@
 
 @author: Yanqing
 '''
-
+import numpy as np
 #partition : a sorted array of natural number
 #c         : a natural number to be unioned to the partition.
 def unionPartition(partition, c):
@@ -160,22 +160,25 @@ def countNumFixedQ(xPartition, P, Q, count, sumCol):
                     
     return resultCount, resultSumCol
 
-# def entropy(count, sumCol):   
-#     
-#     row = len(count[0]) - 1
-#     col = len(sumCol) - 1
-#     
-#     totalNum = 0
-#     for j in range(1,col + 1):
-#         totalNum = totalNum + sumCol[j]
-#         
-#     
-#     for i in range(1, row + 1):
-#         entropy = entropy + count[i][j]
-#      
-#     for l in range(1, col):
-#         for i in range(1,row):
-#             sum = count
+def entropy(count, sumCol):   
+     
+    row = len(count) - 1
+    col = len(sumCol) - 1
+     
+    totalNum = 0
+    for j in range(1,col + 1):
+        totalNum = totalNum + sumCol[j]
+         
+     
+    result = 0 
+    for j in range(1, col + 1): 
+        for i  in range(1, row + 1):
+            p = (1.0 * count[i][j])/totalNum;
+            result = result + p * np.log(1.0/p)
+    
+    return result    
+
+   
         
         
   
@@ -187,18 +190,12 @@ def countNumFixedQ(xPartition, P, Q, count, sumCol):
 
 if __name__ == '__main__':
 
+    count = [[0,0,0,0,0], [0,1,2,1,2],[0,3,5,1,3],[0,4,8,1,4]]
+    sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))]
     
     
-
-    count = [[0,0,0,0], [0,1,3,4],[0,2,5,8],[0,1,1,1],[0,2,3,4]]
-    sumCol = [sum(x) for x in count]
-    P = [0,8,23,26,35]
-    Q = [-1,4,5,7]
-    xPartition = [26,35]
-    
-    [dd, ddd] = countNumFixedQ(xPartition, P, Q, count, sumCol)
+    dd = entropy(count, sumCol)
     print dd
-    print ddd
     
 #     Q = equipartitionYAxis(D,2)
 # #     

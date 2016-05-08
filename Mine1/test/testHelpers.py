@@ -172,7 +172,7 @@ class TestHelpersMethods(unittest.TestCase):
         xPartition = [0,8,35]
         target = [[0, 0, 0], [0, 1, 5], [0, 3, 9],[0,4,13]]
         [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
-        print count
+
         self.assertEqual(count , target, "countNumFixedQ testcase 1")  
         self.assertEqual(countCol , [0,8,27], "countNumFixedQ testcase 1") 
       
@@ -195,8 +195,7 @@ class TestHelpersMethods(unittest.TestCase):
         xPartition = [0,26,35]
         target = [[0, 0, 0], [0, 4, 2], [0, 9, 3],[0,13,4]]
         [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
-          
-          
+             
         self.assertEqual(count , target, "countNumFixedQ testcase 3")  
         self.assertEqual(countCol , [0,26,9], "countNumFixedQ testcase 3")  
          
@@ -210,7 +209,6 @@ class TestHelpersMethods(unittest.TestCase):
         target = [[0, 0, 0], [0, 3, 1], [0, 8, 1],[0,12,1]]
         [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
           
-        print count
         self.assertEqual(count , target, "countNumFixedQ testcase 4")  
         self.assertEqual(countCol , [0,23,3], "countNumFixedQ testcase 4")  
           
@@ -223,7 +221,6 @@ class TestHelpersMethods(unittest.TestCase):
         target = [[0,0],[0, 1], [0, 1],[0, 1]]
         [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
           
-        print count
         self.assertEqual(count , target, "countNumFixedQ testcase 5")  
         self.assertEqual(countCol , [0,3], "countNumFixedQ testcase 5")  
           
@@ -240,7 +237,7 @@ class TestHelpersMethods(unittest.TestCase):
         self.assertEqual(count , target, "countNumFixedQ testcase 6")  
         self.assertEqual(countCol , [0,8], "countNumFixedQ testcase 6") 
           
-    def test_countNumFixedQ67(self):
+    def test_countNumFixedQ7(self):
         count = [[0,0,0,0,0], [0,1,2,1,2],[0,3,5,1,3],[0,4,8,1,4]]
         sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))]
         P = [0,8,23,26,35]
@@ -248,10 +245,40 @@ class TestHelpersMethods(unittest.TestCase):
         xPartition = [26,35]
         target = [[0, 0], [0, 2], [0, 3],[0, 4]]
         [count, countCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)
-          
-        print count
+
         self.assertEqual(count , target, "countNumFixedQ testcase 7")  
-        self.assertEqual(countCol , [0,9], "countNumFixedQ testcase 7")                
+        self.assertEqual(countCol , [0,9], "countNumFixedQ testcase 7")  
+        
+    def test_entropy1(self):
+        count = [[0,0,0,0,0], [0,1,2,1,2],[0,3,5,1,3],[0,4,8,1,4]]
+        sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))]   
+        H = entropy(count, sumCol)
+        self.assertAlmostEqual(H, 2.2657, 4,"entropy testcase 1")
+        
+    def test_entropy2(self):
+        count = [[0,0,0,0,0], [0,1,2,1,2],[0,3,5,1,3],[0,4,8,1,4]]
+        sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))] 
+        
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [0,26,35]
+        
+        [subCount, subCountCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)  
+        H = entropy(subCount, subCountCol)
+        self.assertAlmostEqual(H, 1.5870, 4,"entropy testcase 2")    
+        
+    def test_entropy3(self):
+        count = [[0,0,0,0,0], [0,1,2,1,2],[0,3,5,1,3],[0,4,8,1,4]]
+        sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))] 
+        
+        P = [0,8,23,26,35]
+        Q = [-1,4,5,7]
+        xPartition = [26,35]
+        
+        [subCount, subCountCol] = countNumFixedQ(xPartition, P, Q, count, sumCol)  
+        H = entropy(subCount, subCountCol)
+        self.assertAlmostEqual(H,  1.0609, 4,"entropy testcase 3")      
+                  
  
     
 if __name__ == '__main__':
