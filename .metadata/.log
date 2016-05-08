@@ -933,3 +933,12 @@ org.eclipse.core.internal.resources.ResourceException: Marker id 3514 not found.
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 !SUBENTRY 1 org.eclipse.core.resources 4 376 2016-05-07 22:39:22.334
 !MESSAGE Marker id 3514 not found.
+
+!ENTRY org.python.pydev.debug 4 4 2016-05-08 07:48:07.078
+!MESSAGE Unexpected resume reason code
+
+!ENTRY org.python.pydev.debug 4 4 2016-05-08 08:06:32.327
+!MESSAGE Unexpected resume reason code
+
+!ENTRY org.python.pydev.debug 4 4 2016-05-08 08:14:24.729
+!MESSAGE Unexpected resume reason code

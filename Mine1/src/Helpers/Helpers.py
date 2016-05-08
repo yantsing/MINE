@@ -120,52 +120,59 @@ def GetSuperclumpsPartition(P, tildek):
 def countNum(D, P, Q):   
     row = len(Q) - 1
     col = len(P) - 1
-    count = [[0 for i in range(row + 1)] for j in range(col + 1)]
+    count = [[0 for i in range(col + 1)] for j in range(row + 1)]
     
     n = 0
-    i = 1
+    j = 1
     for d in D:
         n = n + 1
-        if n > P[i]:
-            i = i + 1
-        j = GetRowIndex(d[1],Q)
+        if n > P[j]:
+            j = j + 1
+        i = GetRowIndex(d[1],Q)
         count[i][j] = count[i][j] + 1
-        
-    sumCol = [sum(x) for x in count]    
+      
+    sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))]   
     return count, sumCol 
 
 def countNumFixedQ(xPartition, P, Q, count, sumCol):
     row = len(Q) - 1
     col = len(P) - 1
     resultCol = len(xPartition) - 1
-    resultCount = [[0 for i in range(row + 1)] for j in range(resultCol + 1)]
+    resultCount = [[0 for i in range(resultCol + 1)] for j in range(row + 1)]
     resultSumCol = [0 for i in range(resultCol + 1)]
-    i = 1
+    j = 1
 #     resultSumCol[i] = sumCol[i] 
 #     for j in range(1, row + 1):
 #         resultCount[i][j] = count[i][j]
-    start = GetColIndex(xPartition[i - 1], P)
+    start = GetColIndex(xPartition[j - 1], P)
     for c in range(start + 1, col + 1):
-        if P[c] <= xPartition[i]:
-            for j in range(1, row + 1):
-                resultCount[i][j] =  resultCount[i][j] + count[c][j]
-            resultSumCol[i] = resultSumCol[i] + sumCol[c]
+        if P[c] <= xPartition[j]:
+            for i in range(1, row + 1):
+                resultCount[i][j] =  resultCount[i][j] + count[i][c]
+            resultSumCol[j] = resultSumCol[j] + sumCol[c]
         else:
-            i = i + 1
-            if i > resultCol:
+            j = j + 1
+            if j > resultCol:
                 break
-            for j in range(1,row + 1):
-                resultCount[i][j] = count[c][j]
-            resultSumCol[i] = sumCol[c]
+            for i in range(1,row + 1):
+                resultCount[i][j] = count[i][c]
+            resultSumCol[j] = sumCol[c]
                     
     return resultCount, resultSumCol
 
-# def entropy(D,xPartition, Q, sumCol):   
-#     col = len(xPartition) 
-#     row = len(Q)  
-#     countNum(D, xPartition, Q): 
-#     totolNum = 
+# def entropy(count, sumCol):   
 #     
+#     row = len(count[0]) - 1
+#     col = len(sumCol) - 1
+#     
+#     totalNum = 0
+#     for j in range(1,col + 1):
+#         totalNum = totalNum + sumCol[j]
+#         
+#     
+#     for i in range(1, row + 1):
+#         entropy = entropy + count[i][j]
+#      
 #     for l in range(1, col):
 #         for i in range(1,row):
 #             sum = count
