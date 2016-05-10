@@ -11,7 +11,14 @@ def unionPartition(partition, c):
     newPartition = list(setPartition)
     return sorted(newPartition)
 
-def equipartitionYAxis(D, y):
+def SortInIncreasingOrderByXValue(D):
+    return sorted(D)
+
+def SortInIncreasingOrderByYValue(D):
+    return sorted(D, key = lambda x : x[1])
+
+def equipartitionYAxis(inputD, y):
+    D = SortInIncreasingOrderByYValue(inputD)
     n = float(len(D))
     
     if n < y:
@@ -134,8 +141,8 @@ def countNum(D, P, Q):
     sumCol = [sum(x[i] for x in count) for i in range(len(count[0]))]   
     return count, sumCol 
 
-def countNumFixedQ(xPartition, P, Q, count, sumCol):
-    row = len(Q) - 1
+def countNumFixedQ(xPartition, P, count, sumCol):
+    row = len(count) - 1
     col = len(P) - 1
     resultCol = len(xPartition) - 1
     resultCount = [[0 for i in range(resultCol + 1)] for j in range(row + 1)]
@@ -160,6 +167,33 @@ def countNumFixedQ(xPartition, P, Q, count, sumCol):
                     
     return resultCount, resultSumCol
 
+#Q is fixed as [-1, len(Q)]
+def countNumFixedP(xPartition, P, sumCol):
+    row = 2
+    col = len(P) - 1
+    resultCol = len(xPartition) - 1
+    resultCount = [[0 for i in range(resultCol + 1)] for j in range(row)]
+    resultSumCol = [0 for i in range(resultCol + 1)]
+    j = 1
+#     resultSumCol[i] = sumCol[i] 
+#     for j in range(1, row + 1):
+#         resultCount[i][j] = count[i][j]
+    start = GetColIndex(xPartition[j - 1], P)
+    for c in range(start + 1, col + 1):
+        if P[c] <= xPartition[j]:
+            resultCount[1][j] =  resultCount[1][j] + sumCol[c]
+            resultSumCol[j] = resultSumCol[j] + sumCol[c]
+        else:
+            j = j + 1
+            if j > resultCol:
+                break
+            for i in range(1,row + 1):
+                resultCount[1][j] = sumCol[c]
+            resultSumCol[j] = sumCol[c]
+                    
+    return resultCount, resultSumCol
+
+
 def entropy(count, sumCol):   
      
     row = len(count) - 1
@@ -176,8 +210,27 @@ def entropy(count, sumCol):
             p = (1.0 * count[i][j])/totalNum;
             result = result + p * np.log(1.0/p)
     
-    return result    
+    return result   
 
+def HPQ(xPartition, P, count, sumCol):   
+    
+    [subCount, subSumCol] = countNumFixedQ(xPartition, P, count, sumCol)
+    
+    return entropy(subCount, subSumCol)  
+
+def HQ(P, count, sumCol):   
+    xPartition = [0, P[-1]]
+    [subCount, subSumCol] = countNumFixedQ(xPartition, P, count, sumCol)
+    
+    return entropy(subCount, subSumCol)  
+
+def HP(xPartition, P, count, sumCol):   
+    [subCount, subSumCol] = countNumFixedP(xPartition, P, sumCol)
+    
+    return entropy(subCount, subSumCol) 
+
+def PerpD(D):
+    return [(x[1],x[0]) for x in D]
    
         
         
