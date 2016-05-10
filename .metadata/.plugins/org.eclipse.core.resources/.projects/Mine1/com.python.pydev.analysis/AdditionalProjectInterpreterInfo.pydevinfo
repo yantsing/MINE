@@ -15,12 +15,11 @@ Helpers.MINE|1462696588267960000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\MI
 3=Helpers.MINE
 -- END DICTIONARY
 -- START TREE 1
-16
+14
 HP|1|HP!10@
 HQ|1|HQ!10@
 app|1|ApproxOptimizeXAxis!18@
 cha|1|CharacteristicMatrix!25@
-con|0|
 cou|4|count!11@countNumFixedP!10@countNum!10@countNumFixedQ!10@
 dd|1|dd!11@
 ent|1|entropy!10@
@@ -30,15 +29,12 @@ hpq|1|HPQ!10@
 per|1|PerpD!10@
 sor|2|SortInIncreasingOrderByYValue!10@SortInIncreasingOrderByXValue!10@
 sum|1|sumCol!11@
-tes|0|
 uni|1|unionPartition!10@
 -- END TREE
 -- START TREE 2
-6
+4
 B|1|B!4&27@
 D|1|D!4&27@
 P|1|P!4&27@
 __i|1|__init__!5&26@
-hpq|0|
-tes|0|
 -- END TREE

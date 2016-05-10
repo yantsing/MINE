@@ -1,8 +1,1 @@
-INSTUPtest.testHelpers
-C:\Users\Yanqing\MINE\MINE\Mine1\test\testHelpers.py
-INFOS:&&1|1|2|0&&2|3|2|1&&2|4|2|1&&2|5|2|1
-test.testHelpers=2
-TestHelpersMethods=1
-test_HPQ1=3
-test_HPQ2=4
-test_SortInIncreasingOrderByXValue=5
+DELSTRHelpers.Helpers

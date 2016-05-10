@@ -411,7 +411,7 @@ class TestHelpersMethods(unittest.TestCase):
         P = [0,8,23,26,35]
         xPartition = [0,26,35]
         H = HP(xPartition, P, sumCol)
-        self.assertAlmostEqual(H,  0.5700, 4, "HP testcase 1")  
+        self.assertAlmostEqual(H,  0.5701, 4, "HP testcase 1")  
                   
     def test_SortInIncreasingOrderByXValue(self):
         D = [(2,1),(4,6),(3,2)] 

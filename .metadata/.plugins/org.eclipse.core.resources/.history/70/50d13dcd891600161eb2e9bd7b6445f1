@@ -224,7 +224,7 @@ def HQ(P, count, sumCol):
     
     return entropy(subCount, subSumCol)  
 
-def HP(xPartition, P, sumCol):   
+def HP(xPartition, P, count, sumCol):   
     [subCount, subSumCol] = countNumFixedP(xPartition, P, sumCol)
     
     return entropy(subCount, subSumCol) 
