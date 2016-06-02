@@ -79,7 +79,7 @@ def GetClumpsPartition(D, Q):
     currRow = GetRowIndex(D[i-1][1],Q)
     while i <= n:
         j = i + 1
-        while (j <= n and (D[j-1][1] <= Q[currRow] and D[j-1][1] > Q[currRow-1])):
+        while (j <= n and (D[j-2][0] == D[j-1][0] or (D[j-1][1] <= Q[currRow] and D[j-1][1] > Q[currRow-1]))):
             j = j + 1
         if j > n:
             P[currCol] = n
@@ -207,8 +207,9 @@ def entropy(count, sumCol):
     result = 0 
     for j in range(1, col + 1): 
         for i  in range(1, row + 1):
-            p = (1.0 * count[i][j])/totalNum;
-            result = result + p * np.log(1.0/p)
+            if count[i][j] != 0:
+                p = (1.0 * count[i][j])/totalNum;
+                result = result + p * np.log(1.0/p)
     
     return result   
 

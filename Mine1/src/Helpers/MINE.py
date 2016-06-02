@@ -3,6 +3,9 @@
 @author: Yanqing
 '''
 from Helpers import *
+from ApproxMaxMI import *
+import numpy as np
+from astropy import log
 
 class CharacteristicMatrix(object):
     '''
@@ -15,9 +18,44 @@ class CharacteristicMatrix(object):
         Constructor
         '''
         self.D = D
+        self.DPerp = PerpD(D)
         self.B = B
         self.tildek
-        self.P = 
+    
+    def ApproxCharacteristicMatrix(self, D, B, c): 
+        if B <= 3:
+            print "Parameter B should be greater than 3!"
+            return None
+        
+        if c < 1:
+            print "Parameter B should be greater than 1!"
+            return None
+        
+        Ixy = float('-inf')
+        for y in range(2, B/2 + 1):
+            x = B/y
+            I = ApproxMaxMI(self.D,x,y,c*x)
+            IPerp = ApproxMaxMI(self.DPerp,x,y,c*x)
+            maxI_index  = np.argmax(I)
+            maxIPerp_index = np.argmax(IPerp)
+            
+            if I[maxI_index] > IPerp[maxIPerp_index]:
+                tempMaxI = I[maxI_index]
+                max_x = maxI_index + 1
+            else:
+                tempMaxI = IPerp[maxIPerp_index] 
+                max_x = maxIPerp_index + 1  
+                
+            if tempMaxI > Ixy:
+                Ixy = tempMaxI
+                Mxy = Ixy/min(log(max_x),log(y))
+                    
+        return Mxy        
+            
+            
+             
+            
+
     
         
      

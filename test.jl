@@ -1,7 +1,7 @@
-push!(LOAD_PATH, "./")
 
-import MyModule
+import MyModule: mymycoolfunction
 MyModule.mycoolfunction()
+
 #
 # import helpers: x, p
 # using Base.Test
