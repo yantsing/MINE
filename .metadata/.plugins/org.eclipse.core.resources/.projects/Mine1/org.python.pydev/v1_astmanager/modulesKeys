@@ -1,5 +1,6 @@
 MODULES_MANAGER_V2
 Helpers.ApproxMaxMI|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\ApproxMaxMI.py
 Helpers.Helpers|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
-Helpers.MINE|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\MINE.py
 Helpers.__init__|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\__init__.py
+MINE|C:\Users\Yanqing\MINE\MINE\Mine1\src\MINE.py
+__init__|C:\Users\Yanqing\MINE\MINE\Mine1\src\__init__.py

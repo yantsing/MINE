@@ -1,46 +1,49 @@
 -- VERSION_4
 -- START DISKCACHE_2
 C:\Users\Yanqing\MINE\MINE\.metadata\.plugins\org.eclipse.core.resources\.projects\Mine1\com.python.pydev.analysis\v2_indexcache
-test.testApproxMaxMI|1464772277390942000|C:\Users\Yanqing\MINE\MINE\Mine1\test\testApproxMaxMI.py
-Helpers.ApproxMaxMI|1464874340396348000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\ApproxMaxMI.py
+Helpers.ApproxMaxMI|1465052944184871000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\ApproxMaxMI.py
 Helpers.Helpers|1464676812600585000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\Helpers.py
 Helpers.__init__|1462590559380840000|C:\Users\Yanqing\MINE\MINE\Mine1\src\Helpers\__init__.py
+MINE|1465052491392124000|C:\Users\Yanqing\MINE\MINE\Mine1\src\MINE.py
+__init__|1465052095345896000|C:\Users\Yanqing\MINE\MINE\Mine1\src\__init__.py
 -- END DISKCACHE
 -- START DICTIONARY
 4
-3=test.testApproxMaxMI
-1=Helpers.ApproxMaxMI
-4=TestApproxMaxMI
-2=Helpers.Helpers
+2=Helpers.ApproxMaxMI
+3=Helpers.Helpers
+1=MINE
+4=MINE.__init__
 -- END DICTIONARY
 -- START TREE 1
-18
-D|1|D!11@
-HP|1|HP!18@
-HQ|1|HQ!18@
-I|1|I!11@
-Q|1|Q!11@
-app|2|ApproxOptimizeXAxis!10@ApproxMaxMI!10@
-cha|0|
-cou|4|count!19@countNumFixedP!18@countNum!18@countNumFixedQ!18@
-dd|1|dd!19@
-ent|1|entropy!18@
-equ|1|equipartitionYAxis!18@
-get|4|GetRowIndex!18@GetClumpsPartition!18@GetSuperclumpsPartition!18@GetColIndex!18@
-hpq|1|HPQ!18@
-per|1|PerpD!18@
-sor|2|SortInIncreasingOrderByYValue!18@SortInIncreasingOrderByXValue!18@
-sum|1|sumCol!19@
-tes|1|TestApproxMaxMI!25@
-uni|1|unionPartition!18@
+22
+B|1|B!11@
+D|2|D!19@D!11@
+HP|1|HP!26@
+HQ|1|HQ!26@
+I|1|I!19@
+M|1|M!11@
+Q|1|Q!19@
+app|2|ApproxOptimizeXAxis!18@ApproxMaxMI!18@
+c|1|c!11@
+cou|4|count!27@countNumFixedP!26@countNum!26@countNumFixedQ!26@
+dd|1|dd!27@
+ent|1|entropy!26@
+equ|1|equipartitionYAxis!26@
+get|4|GetRowIndex!26@GetClumpsPartition!26@GetSuperclumpsPartition!26@GetColIndex!26@
+hpq|1|HPQ!26@
+min|1|MINE!9@
+n|1|n!11@
+per|1|PerpD!26@
+sor|2|SortInIncreasingOrderByYValue!26@SortInIncreasingOrderByXValue!26@
+sum|1|sumCol!27@
+tes|0|
+uni|1|unionPartition!26@
 -- END TREE
 -- START TREE 2
-7
-B|0|
-D|0|
-P|0|
-__i|0|
-app|0|
-dpe|0|
-tes|1|test_unionPartition1!4&26@
+5
+D|1|D!4&11@
+__i|1|__init__!1&10@
+app|1|ApproxCharacteristicMatrix!1&10@
+dpe|1|DPerp!4&11@
+tes|0|
 -- END TREE

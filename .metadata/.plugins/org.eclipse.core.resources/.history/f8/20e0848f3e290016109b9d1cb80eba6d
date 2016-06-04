@@ -1,0 +1,22 @@
+'''
+Created on
+
+@author: Yanqing
+'''
+import unittest
+from Helpers.Helpers import *
+from Helpers.ApproxMaxMI import *
+
+
+class TestMINE(unittest.TestCase):
+    #############################################################################
+    def test_unionPartition1(self):
+        D = [(1,2),(3,4),(3,5), (3,6),(4,7)]
+        Q = [-1,4,5,7]
+    
+        I = ApproxOptimizeXAxis(D, Q, 2, 4)
+        self.assertAlmostEqual(I[2][2], 0.2231, 4, "TestApproxMaxMI testcase 1")
+            
+    
+if __name__ == '__main__':
+    unittest.main()
